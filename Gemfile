@@ -59,7 +59,7 @@ group	:test	do
 end
 
 
-# Added based on the tutorial - SERLER
+# Added based on the tutorial - SERLER- test
 group :production do
   gem 'pg'
   gem 'rails_12factor'
