@@ -1,18 +1,18 @@
 class CreateEvidenceSource < ActiveRecord::Migration
   def change
     create_table :evidence_sources, id: false do |t|
-      t.integer 'ArticleID', :null => false	
-      t.string 'Title',	:limit => '200', :null => false	
-      t.string 'Author',	:limit => '200', :null => false	
-      t.datetime 'Year'			
-      t.string 'Source', :limit => '200'				
-      t.datetime 'DOI'		
-      t.integer 'Issue_no'			
-      t.string 'Volume',	:limit => '200'			
-      t.string 'Page_no',	:limit => '200'			
-      t.integer 'Submitter',	:null => false	
-      t.datetime 'Submitted_on', :null => false	
-      t.primary_key :ArticleID
+      t.integer 'articleID', :null => false	
+      t.string 'title',	:limit => '200', :null => false	
+      t.string 'author',	:limit => '200', :null => false	
+      t.datetime 'year'			
+      t.string 'source', :limit => '200'				
+      t.datetime 'doi'		
+      t.integer 'issueNo'			
+      t.string 'volume',	:limit => '200'			
+      t.string 'pageNo',	:limit => '200'			
+      t.integer 'submitter',	:null => false	
+      t.datetime 'submittedOn', :null => false	
+      t.primary_key :articleID
     end
   end
 end

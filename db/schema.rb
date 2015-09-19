@@ -14,27 +14,27 @@
 ActiveRecord::Schema.define(version: 20150918211317) do
 
   create_table "articles_workflows", force: :cascade do |t|
-    t.integer  "ArticleID",   null: false
-    t.integer  "Workflow_ID", null: false
-    t.integer  "Implementor", null: false
-    t.datetime "Impl_On",     null: false
+    t.integer  "articleID",   null: false
+    t.integer  "workflow_ID", null: false
+    t.integer  "implementor", null: false
+    t.datetime "impl_On",     null: false
   end
 
   create_table "evidence_items", primary_key: "ev_type_ID", force: :cascade do |t|
     t.string "ev_type_name"
   end
 
-  create_table "evidence_sources", primary_key: "ArticleID", force: :cascade do |t|
-    t.string   "Title",        limit: 200, null: false
-    t.string   "Author",       limit: 200, null: false
-    t.datetime "Year"
-    t.string   "Source",       limit: 200
-    t.datetime "DOI"
-    t.integer  "Issue_no"
-    t.string   "Volume",       limit: 200
-    t.string   "Page_no",      limit: 200
-    t.integer  "Submitter",                null: false
-    t.datetime "Submitted_on",             null: false
+  create_table "evidence_sources", primary_key: "articleID", force: :cascade do |t|
+    t.string   "title",       limit: 200, null: false
+    t.string   "author",      limit: 200, null: false
+    t.datetime "year"
+    t.string   "source",      limit: 200
+    t.datetime "doi"
+    t.integer  "issueNo"
+    t.string   "volume",      limit: 200
+    t.string   "pageNo",      limit: 200
+    t.integer  "submitter",               null: false
+    t.datetime "submittedOn",             null: false
   end
 
   create_table "roles", primary_key: "roleID", force: :cascade do |t|
@@ -63,12 +63,12 @@ ActiveRecord::Schema.define(version: 20150918211317) do
     t.string "se_methodname"
   end
 
-  create_table "users", primary_key: "UserID", force: :cascade do |t|
-    t.string  "Username",    limit: 25,  null: false
-    t.string  "Password",    limit: 15,  null: false
+  create_table "users", primary_key: "userID", force: :cascade do |t|
+    t.string  "username",    limit: 25,  null: false
+    t.string  "password",    limit: 15,  null: false
     t.string  "fullname",    limit: 150, null: false
     t.string  "email",       limit: 150
-    t.string  "Affiliation", limit: 200
+    t.string  "affiliation", limit: 200
     t.integer "roleID"
     t.string  "gender",      limit: 1
     t.integer "age"
