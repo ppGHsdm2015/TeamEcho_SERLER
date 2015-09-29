@@ -1,3 +1,20 @@
+
 class User < ActiveRecord::Base
-	attr_accessible :userID, :username, :password, :fullname, :email, :affiliation, :roleID, :gender, :age
+    
+    private
+    before_create :confirmation_token
+    def confirmation_token
+      if self.confirm_token.blank?
+          self.confirm_token = SecureRandom.urlsafe_base64.to_s
+      end
+    end
+    
+    def email_activate
+        self.email_confirmed = true
+        self.confirm_token = nil
+        save!(:validate => false)
+    end
+    
+    has_secure_password
 end
+

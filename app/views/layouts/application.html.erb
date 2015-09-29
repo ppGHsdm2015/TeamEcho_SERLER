@@ -7,15 +7,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-   
+ 
+<div class='row'>
+     <div class='well col-md-12 col-md-offset-0'>
+   <%= image_tag "serler.jpg", :width => '150', :height =>'150' %>
   
-   <div class="page-header">
-  <h1>WELCOME TO SERLER</h1>
+  </div>
+  
+  
+    
+  
 </div>
+   
+      
+      
+     
+
   
-  <div class="container">
+     
+        
+      
+          
+       
+      
+ 
+           
+          
+  <% render 'layouts/messages'%>
+  <% flash.each do |key, value| %>
+      <p> <%= value %> </p>
+      
+     <% end %>
   
 <%= yield %>
+</header>
 </div>
 </body>
 </html>

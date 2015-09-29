@@ -1,0 +1,37 @@
+<% @page_title = "UserAuth | Signup" %>
+
+
+  <div class='row'>
+    <div class='well col-md-6 col-md-offset-3'>
+      <div class="Sign_Form">
+  <h1>New User Registration</h1><br>
+  <center>
+  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
+    
+    <%= f.text_field :username, :placeholder => 'Username'%> <br><br>
+    <%= f.password_field :password, :placeholder => 'Password'%><br><br>
+    <%= f.text_field :fullname, :placeholder => 'Full Name'%> <br><br>
+    <%= f.text_field :email, :placeholder => 'Email'%> <br><br>
+    <%= f.text_field :affiliation, :placeholder => 'Affiliation'%><br><br>
+    
+    <%= f.radio_button(:option, "option1") %>
+    <%= f.label(:option_option1, "Male") %>
+   
+    <%= f.radio_button(:option, "option2") %>
+    <%= f.label(:option_option2, "Female") %> <br><br>
+    
+    
+    <%= f.text_field :age, :placeholder => 'Age'%><br><br><br>
+  
+    
+    <%= f.submit :Register %>
+     
+    <%= f.submit :Cancel %>
+    
+    </center>
+  <% end %>
+     </div>
+    </div>
+
+  </div>
+

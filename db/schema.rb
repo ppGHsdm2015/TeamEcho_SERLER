@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918211317) do
+ActiveRecord::Schema.define(version: 20150926055510) do
 
   create_table "articles_workflows", force: :cascade do |t|
     t.integer  "articleID",   null: false
@@ -64,14 +64,16 @@ ActiveRecord::Schema.define(version: 20150918211317) do
   end
 
   create_table "users", primary_key: "userID", force: :cascade do |t|
-    t.string  "username",    limit: 25,  null: false
-    t.string  "password",    limit: 15,  null: false
-    t.string  "fullname",    limit: 150, null: false
-    t.string  "email",       limit: 150
-    t.string  "affiliation", limit: 200
+    t.string  "username",        limit: 25,                  null: false
+    t.string  "fullname",        limit: 150,                 null: false
+    t.string  "email",           limit: 150
+    t.string  "affiliation",     limit: 200
     t.integer "roleID"
-    t.string  "gender",      limit: 1
+    t.string  "gender",          limit: 1
     t.integer "age"
+    t.boolean "email_confirmed",             default: false
+    t.string  "confirm_token"
+    t.string  "password_digest"
   end
 
   create_table "workflows", primary_key: "workflowID", force: :cascade do |t|
